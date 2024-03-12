@@ -3,13 +3,15 @@
 	import * as Tone from 'tone';
 	import Volume from '$lib/volume.svelte';
 	import Frequency from '$lib/frequency.svelte';
+	import play from '$lib/icons/play.svg';
+	import stop from '$lib/icons/stop.svg';
 
 	export let volume = -100;
 	export let frequency = 440;
 
 	let osc: Tone.Oscillator | undefined = undefined;
 
-	$: status = osc?.state == 'started' ? '/stop.svg' : '/play.svg';
+	$: icon = osc?.state == 'started' ? stop : play;
 
 	onMount(() => {
 		if (osc) return;
@@ -22,7 +24,7 @@
 	const toggleOsc = () => {
 		if (!osc) return;
 		osc.state === 'started' ? osc.stop() : osc.start();
-		status = osc.state === 'started' ? '/stop.svg' : '/play.svg';
+		icon = osc.state === 'started' ? stop : play;
 	};
 </script>
 
@@ -30,7 +32,7 @@
 	{#if osc}
 		<p>Voice</p>
 		<button on:click={toggleOsc} type="button" class="btn btn-icon variant-ghost uppercase">
-			<img src={status} alt="" />
+			<img src={icon} alt="" />
 		</button>
 
 		{#if osc.state === 'started'}
