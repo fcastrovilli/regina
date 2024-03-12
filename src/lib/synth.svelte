@@ -1,6 +1,14 @@
 <script lang="ts">
-	let voices = 1;
+	import * as Tone from 'tone';
+
+	import { onMount } from 'svelte';
 	import Voice from '$lib/voice.svelte';
+
+	let voices = 1;
+
+	onMount(() => {
+		Tone.start();
+	});
 </script>
 
 <div class="space-y-4">

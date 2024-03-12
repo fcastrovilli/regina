@@ -1,19 +1,23 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import * as Tone from 'tone';
-	import Volume from './volume.svelte';
-	import Frequency from './frequency.svelte';
+	import Volume from '$lib/volume.svelte';
+	import Frequency from '$lib/frequency.svelte';
 
 	export let volume = -100;
 	export let frequency = 440;
 
-	let osc: Tone.Oscillator | null = null;
+	let osc: Tone.Oscillator | undefined = undefined;
 
-	$: status = osc?.state == 'started' ? '⏹' : '▶';
+	$: status = '⏹';
+	// $: status = osc?.state == 'started' ? '⏹' : '▶';
+
 	onMount(() => {
-		Tone.start();
-		osc = new Tone.Oscillator(frequency, 'sine').toDestination();
-		osc.volume.value = volume;
+		if (osc) return;
+		import('tone').then((Tone) => {
+			osc = new Tone.Oscillator(frequency, 'sine').toDestination();
+			osc.volume.value = volume;
+		});
 	});
 
 	const toggleOsc = () => {
@@ -29,11 +33,11 @@
 			{status}
 		</button>
 
-		<!-- {#if osc.state === 'started'} -->
-		<div class="space-y-2 w-full">
-			<Volume {osc} bind:volume />
-			<Frequency {osc} bind:frequencyValue={frequency} />
-		</div>
-		<!-- {/if} -->
+		{#if osc.state === 'started'}
+			<div class="space-y-2 w-full">
+				<Volume {osc} bind:volume />
+				<Frequency {osc} bind:frequencyValue={frequency} />
+			</div>
+		{/if}
 	{/if}
 </div>
