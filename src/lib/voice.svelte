@@ -9,8 +9,7 @@
 
 	let osc: Tone.Oscillator | undefined = undefined;
 
-	$: status = '⏹';
-	// $: status = osc?.state == 'started' ? '⏹' : '▶';
+	$: status = osc?.state == 'started' ? '/stop.svg' : '/play.svg';
 
 	onMount(() => {
 		if (osc) return;
@@ -23,14 +22,15 @@
 	const toggleOsc = () => {
 		if (!osc) return;
 		osc.state === 'started' ? osc.stop() : osc.start();
-		status = osc.state === 'started' ? '⏹' : '▶';
+		status = osc.state === 'started' ? '/stop.svg' : '/play.svg';
 	};
 </script>
 
 <div class="card variant-ghost p-4 w-full flex flex-col h-full mx-auto justify-center items-center">
 	{#if osc}
+		<p>Voice</p>
 		<button on:click={toggleOsc} type="button" class="btn btn-icon variant-ghost uppercase">
-			{status}
+			<img src={status} alt="" />
 		</button>
 
 		{#if osc.state === 'started'}

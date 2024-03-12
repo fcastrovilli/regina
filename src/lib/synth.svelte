@@ -15,8 +15,8 @@
 	{#each Array(voices) as _}
 		<Voice />
 	{/each}
-	<div class="card variant-soft-secondary">
-		<button class="btn btn-primary" on:click={() => (voices += 1)}>Add Voice</button>
-		<!-- <button class="btn btn-secondary" on:click={() => voices -= 1}>Remove Voice</button> -->
-	</div>
+	<button class="py-4 card variant-soft-secondary w-full" on:click={() => (voices += 1)}
+		>Add Voice</button
+	>
+	<!-- <button class="btn btn-secondary" on:click={() => voices -= 1}>Remove Voice</button> -->
 </div>
