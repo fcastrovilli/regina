@@ -30,7 +30,7 @@
 
 <div class="card variant-ghost p-4 w-full flex flex-col h-full mx-auto justify-center items-center">
 	{#if osc}
-		<p>Voice</p>
+		<slot>Voice</slot>
 		<button on:click={toggleOsc} type="button" class="btn btn-icon variant-ghost uppercase">
 			<img src={icon} alt="" />
 		</button>
