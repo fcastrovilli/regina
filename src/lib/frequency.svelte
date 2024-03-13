@@ -5,7 +5,8 @@
 	export let osc: Tone.Oscillator | null = null;
 	const updateFrequency = () => {
 		if (!osc) return;
-		osc.frequency.value = frequencyValue;
+		osc.frequency.linearRampTo(frequencyValue, 0.1);
+		// osc.frequency.value = frequencyValue;
 	};
 </script>
 
