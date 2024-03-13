@@ -5,7 +5,7 @@
 
 	const updateVolume = () => {
 		if (!osc) return;
-		osc.volume.value = volume;
+		osc.volume.linearRampTo(volume, 0.1);
 	};
 </script>
 
