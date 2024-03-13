@@ -10,7 +10,8 @@
 	};
 </script>
 
-<label for="frequency">Frequency</label>
+<label for="frequency" class="font-semibold text-slate-400">Frequency</label>
+<p class="h1 text-center">{frequencyValue} Hz</p>
 <input
 	type="range"
 	on:input={updateFrequency}
@@ -20,5 +21,3 @@
 	max={10000}
 	step={1}
 />
-
-<p class="h1 text-center">{frequencyValue} Hz</p>

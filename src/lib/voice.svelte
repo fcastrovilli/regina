@@ -30,14 +30,17 @@
 
 <div class="card variant-ghost p-4 w-full flex flex-col h-full mx-auto justify-center items-center">
 	{#if osc}
-		<slot>Voice</slot>
-		<button on:click={toggleOsc} type="button" class="btn btn-icon variant-ghost uppercase">
-			<img src={icon} alt="" />
-		</button>
-
+		<div class="flex justify-center items-center w-full gap-4">
+			<button on:click={toggleOsc} type="button" class="btn btn-icon variant-ghost uppercase">
+				<img src={icon} alt="" />
+			</button>
+			<slot>Voice</slot>
+		</div>
 		{#if osc.state === 'started'}
-			<div class="space-y-2 w-full">
+			<div class="space-y-2 w-full py-2">
+				<hr />
 				<Volume {osc} bind:volume />
+				<hr />
 				<Frequency {osc} bind:frequencyValue={frequency} />
 			</div>
 		{/if}

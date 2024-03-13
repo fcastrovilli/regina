@@ -9,7 +9,8 @@
 	};
 </script>
 
-<label for="volume">Volume</label>
+<label for="volume" class="font-semibold text-slate-400">Volume</label>
+<p class="h1 text-center">{volume} dB</p>
 <input
 	type="range"
 	on:input={updateVolume}
@@ -19,4 +20,3 @@
 	max={-3}
 	step={0.1}
 />
-<p class="h1 text-center">{volume} dB</p>
