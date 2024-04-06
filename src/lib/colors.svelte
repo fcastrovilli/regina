@@ -29,10 +29,7 @@
 
 		const touchX = touch.clientX;
 		const screenCenter = window.innerWidth / 2;
-		value = Math.min(
-			Math.max(Math.round(((touchX - screenCenter) / screenCenter) * 50 - 80), -100),
-			0
-		);
+		value = Math.min(Math.max(Math.round(((touchX - screenCenter) / screenCenter) * 50), -100), 0);
 		if (osc) osc.volume.linearRampTo(value, 0.3);
 	}}
 	class="flex justify-center items-center"
