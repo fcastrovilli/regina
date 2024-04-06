@@ -4,12 +4,6 @@
 	import type { voiceType } from './types';
 	export let voice: voiceType;
 
-	let valueInDb: number = -Infinity;
-	$: {
-		valueInDb = 20 * Math.log10(value);
-		valueInDb = Math.max(valueInDb, -3);
-	}
-
 	let osc: Tone.Oscillator | undefined = undefined;
 	// let touchStart: number = 0;
 	let value: number = -100;
@@ -25,7 +19,10 @@
 <button
 	on:touchstart={(e) => {
 		// touchStart = e.changedTouches[0].clientX;
-		if (osc) osc.start();
+		if (osc) {
+			osc.start();
+			osc.volume.value = -100;
+		}
 	}}
 	on:touchmove={(e) => {
 		const touch = e.changedTouches[0];
@@ -33,10 +30,10 @@
 		const touchX = touch.clientX;
 		const screenCenter = window.innerWidth / 2;
 		value = Math.min(
-			Math.max(Math.round(((touchX - screenCenter) / screenCenter) * 50 - 60), -100),
+			Math.max(Math.round(((touchX - screenCenter) / screenCenter) * 50 - 80), -100),
 			0
 		);
-		if (osc) osc.volume.linearRampTo(value, 0.1);
+		if (osc) osc.volume.linearRampTo(value, 0.3);
 	}}
 	class="flex justify-center items-center"
 >
