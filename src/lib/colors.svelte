@@ -37,7 +37,7 @@
 	<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
 		<g>
 			<rect width="100" height="100" fill={voice.color} />
-			<text x="10" y="60" font-size="35" fill="white">{value}</text>
+			<text x="10" y="60" font-size="35" fill="white">{value}db</text>
 		</g>
 	</svg>
 </button>
