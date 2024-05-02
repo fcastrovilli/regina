@@ -1,36 +1,17 @@
 import { writable } from 'svelte/store';
 
-export const all_notes = writable([
-	{
-		note: 466.16,
-		color: 'pink'
-	},
-	{
-		note: 523.25,
-		color: 'red'
-	},
-	{
-		note: 554.37,
-		color: 'mediumpurple'
-	},
-	{
-		note: 622.25,
-		color: 'palevioletred'
-	},
-	{
-		note: 698.46,
-		color: 'firebrick'
-	},
-	{
-		note: 739.99,
-		color: 'orange'
-	},
-	{
-		note: 830.61,
-		color: 'violet'
-	},
-	{
-		note: 987.77,
-		color: 'skyblue'
-	}
-]);
+export const app_started = writable(false);
+
+import * as Tone from 'tone';
+
+type ToneEnvelopeOptions = Omit<Tone.EnvelopeOptions, 'context'>;
+
+export const synth_options = writable<ToneEnvelopeOptions>({
+	attack: 3,
+	release: 2,
+	attackCurve: 'linear',
+	releaseCurve: 'exponential',
+	decay: 0.5,
+	sustain: 0.8,
+	decayCurve: 'exponential'
+});
