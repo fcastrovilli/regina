@@ -11,7 +11,7 @@
 			envelope: {
 				...$synth_options
 			},
-			volume: -24
+			volume: -10
 		});
 	}
 
