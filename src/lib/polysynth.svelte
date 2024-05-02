@@ -6,12 +6,14 @@
 
 	const cmaj = Scale.get('C5 major');
 
-	poly.set({
-		envelope: {
-			...$synth_options
-		},
-		volume: -24
-	});
+	$: {
+		poly.set({
+			envelope: {
+				...$synth_options
+			},
+			volume: -24
+		});
+	}
 
 	function attack(note: string) {
 		poly.triggerAttack(note);
