@@ -11,12 +11,21 @@
 		<h3 class="h3 font-semibold">Synth Settings</h3>
 		<button
 			on:click={() => drawerStore.close()}
-			class="btn btn-icon btn-icon-sm px-4 variant-outline">X</button
+			class="btn btn-icon btn-icon-sm px-4 variant-filled font-semibold">X</button
 		>
 	</div>
 	<div class="flex flex-col gap-2">
 		<label for="scale" class="capitalize font-semibold text-xl">Scale</label>
 		<input type="text" class="input p-2 px-4" id="scale" bind:value={$scale} />
+		<small class="text-sm text-muted"
+			>👉 <a
+				rel="noopener noreferrer"
+				target="_blank"
+				href="https://github.com/tonaljs/tonal/blob/main/packages/scale-type/data.ts"
+			>
+				See all scales</a
+			></small
+		>
 	</div>
 	<div class="flex flex-col gap-2">
 		<label for="attack" class="capitalize font-semibold text-xl"
