@@ -1,10 +1,19 @@
 <script lang="ts">
 	import { synth_options, scale } from './store';
+	import { getDrawerStore } from '@skeletonlabs/skeleton';
+	const drawerStore = getDrawerStore();
 
 	const maxTime = 10;
 </script>
 
 <div class="flex flex-col gap-8 p-5">
+	<div class="flex justify-between items-center">
+		<h3 class="h3 font-semibold">Synth Settings</h3>
+		<button
+			on:click={() => drawerStore.close()}
+			class="btn btn-icon btn-icon-sm px-4 variant-outline">X</button
+		>
+	</div>
 	<div class="flex flex-col gap-2">
 		<label for="scale" class="capitalize font-semibold text-xl">Scale</label>
 		<input type="text" class="input p-2 px-4" id="scale" bind:value={$scale} />
