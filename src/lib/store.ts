@@ -7,11 +7,11 @@ import * as Tone from 'tone';
 type ToneEnvelopeOptions = Omit<Tone.EnvelopeOptions, 'context'>;
 
 export const synth_options = writable<ToneEnvelopeOptions>({
-	attack: 3,
+	attack: 2,
 	release: 2,
 	attackCurve: 'linear',
 	releaseCurve: 'exponential',
-	decay: 0.5,
-	sustain: 0.8,
+	decay: 2,
+	sustain: 0.5,
 	decayCurve: 'exponential'
 });
