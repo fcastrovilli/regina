@@ -13,7 +13,7 @@
 </script>
 
 <div class="h-screen w-screen flex items-center justify-center">
-	<button class="btn variant-ringed p-10 rounded-full" on:click={handleClick}>
+	<button class="btn p-10" on:click={handleClick}>
 		<h1 class="h1">Start</h1>
 	</button>
 </div>

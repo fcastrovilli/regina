@@ -5,7 +5,8 @@
 
 	const drawerSettings: DrawerSettings = {
 		position: 'right',
-		width: 'w-full max-w-sm md:max-w-md'
+		width: 'w-full max-w-sm md:max-w-md',
+		padding: 'pl-20 py-4'
 	};
 </script>
 
