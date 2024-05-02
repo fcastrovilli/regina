@@ -15,3 +15,5 @@ export const synth_options = writable<ToneEnvelopeOptions>({
 	sustain: 0.5,
 	decayCurve: 'exponential'
 });
+
+export const scale = writable('C5 major');

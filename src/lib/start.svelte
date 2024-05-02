@@ -7,7 +7,6 @@
 		if (browser) {
 			await Tone.start();
 			$app_started = true;
-			console.log('audio is ready');
 		}
 	}
 </script>

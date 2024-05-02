@@ -1,10 +1,10 @@
 <script lang="ts">
 	import * as Tone from 'tone';
 	const poly = new Tone.PolySynth().toDestination();
-	import { synth_options } from './store';
+	import { synth_options, scale } from './store';
 	import Scale from '@tonaljs/scale';
 
-	const cmaj = Scale.get('C5 major');
+	$: selected_scale = Scale.get($scale);
 
 	$: {
 		poly.set({
@@ -25,7 +25,7 @@
 </script>
 
 <div class="h-screen w-full flex flex-col items-center justify-center gap-4 p-4">
-	{#each cmaj.notes as note}
+	{#each selected_scale.notes as note}
 		<button
 			on:contextmenu={() => {
 				return false;
