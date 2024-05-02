@@ -2,3 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 @tailwind variants;
+
+@layer base {
+	html {
+		-webkit-user-select: none; /* Safari */
+		-ms-user-select: none; /* IE 10 and IE 11 */
+		user-select: none; /* Standard syntax */
+	}
+}
