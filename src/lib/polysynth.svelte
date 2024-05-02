@@ -9,7 +9,8 @@
 	poly.set({
 		envelope: {
 			...$synth_options
-		}
+		},
+		volume: -24
 	});
 
 	function attack(note: string) {
@@ -21,7 +22,7 @@
 	}
 </script>
 
-<div class="container h-screen w-screen flex flex-col items-center justify-center gap-4 p-4">
+<div class="h-screen w-full flex flex-col items-center justify-center gap-4 p-4">
 	{#each cmaj.notes as note}
 		<button
 			on:contextmenu={() => {
