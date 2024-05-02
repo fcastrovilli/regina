@@ -6,6 +6,7 @@
 	async function handleClick() {
 		if (browser) {
 			await Tone.start();
+			Tone.setContext(new Tone.Context({ latencyHint: 'balanced' }));
 			$app_started = true;
 		}
 	}
