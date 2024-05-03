@@ -30,7 +30,7 @@
 			<div class="col-span-7 h-full">
 				<div>
 					<img
-						on:contextmenu={() => {
+						on:contextmenu|preventDefault={() => {
 							return false;
 						}}
 						on:pointerdown={() => attack(selected_scale.notes[0])}
@@ -45,7 +45,7 @@
 				<div class="flex flex-row">
 					<div>
 						<img
-							on:contextmenu={() => {
+							on:contextmenu|preventDefault={() => {
 								return false;
 							}}
 							on:pointerdown={() => attack(selected_scale.notes[3])}
@@ -58,7 +58,7 @@
 					</div>
 					<div>
 						<img
-							on:contextmenu={() => {
+							on:contextmenu|preventDefault={() => {
 								return false;
 							}}
 							on:pointerdown={() => attack(selected_scale.notes[4])}
@@ -74,7 +74,7 @@
 			<div class="grid col-span-4 grid-rows-1">
 				<div>
 					<img
-						on:contextmenu={() => {
+						on:contextmenu|preventDefault={() => {
 							return false;
 						}}
 						on:pointerdown={() => attack(selected_scale.notes[1])}
@@ -87,7 +87,7 @@
 				</div>
 				<div>
 					<img
-						on:contextmenu={() => {
+						on:contextmenu|preventDefault={() => {
 							return false;
 						}}
 						on:pointerdown={() => attack(selected_scale.notes[2])}
@@ -100,7 +100,7 @@
 				</div>
 				<div>
 					<img
-						on:contextmenu={() => {
+						on:contextmenu|preventDefault={() => {
 							return false;
 						}}
 						on:pointerdown={() => attack(selected_scale.notes[5])}
@@ -116,7 +116,7 @@
 		<div class="flex flex-row w-full">
 			<div>
 				<img
-					on:contextmenu={() => {
+					on:contextmenu|preventDefault={() => {
 						return false;
 					}}
 					on:pointerdown={() => attack(selected_scale.notes[6])}
@@ -129,7 +129,7 @@
 			</div>
 			<div>
 				<img
-					on:contextmenu={() => {
+					on:contextmenu|preventDefault={() => {
 						return false;
 					}}
 					on:pointerdown={() => attack(selected_scale.notes[0])}
