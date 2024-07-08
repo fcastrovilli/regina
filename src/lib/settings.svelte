@@ -1,9 +1,13 @@
 <script lang="ts">
-	import { synth_options, scale } from './store';
+	import { onDestroy } from 'svelte';
+	import { settings, updateLocalStorage } from './store';
 	import { getDrawerStore } from '@skeletonlabs/skeleton';
 	const drawerStore = getDrawerStore();
 
 	const maxTime = 10;
+	onDestroy(() => {
+		updateLocalStorage('settings', $settings);
+	});
 </script>
 
 <div class="flex flex-col gap-8 p-5">
@@ -16,7 +20,7 @@
 	</div>
 	<div class="flex flex-col gap-2">
 		<label for="scale" class="capitalize font-semibold text-xl">Scale</label>
-		<input type="text" class="input p-2 px-4" id="scale" bind:value={$scale} />
+		<input type="text" class="input p-2 px-4" id="scale" bind:value={$settings.scale} />
 		<small class="text-sm text-muted"
 			>👉 <a
 				rel="noopener noreferrer"
@@ -29,7 +33,7 @@
 	</div>
 	<div class="flex flex-col gap-2">
 		<label for="attack" class="capitalize font-semibold text-xl"
-			>Attack <small class="px-4">{$synth_options.attack}s</small></label
+			>Attack <small class="px-4">{$settings.synth_options.attack}s</small></label
 		>
 		<input
 			type="range"
@@ -38,12 +42,12 @@
 			min="0"
 			max={maxTime}
 			step="0.1"
-			bind:value={$synth_options.attack}
+			bind:value={$settings.synth_options.attack}
 		/>
 	</div>
 	<div class="flex flex-col gap-2">
 		<label for="release" class="capitalize font-semibold text-xl"
-			>Release <small class="px-4">{$synth_options.release}s</small></label
+			>Release <small class="px-4">{$settings.synth_options.release}s</small></label
 		>
 		<input
 			type="range"
@@ -52,12 +56,12 @@
 			min="0"
 			max={maxTime}
 			step="0.1"
-			bind:value={$synth_options.release}
+			bind:value={$settings.synth_options.release}
 		/>
 	</div>
 	<div class="flex flex-col gap-2">
 		<label for="decay" class="capitalize font-semibold text-xl"
-			>Decay <small class="px-4">{$synth_options.decay}s</small></label
+			>Decay <small class="px-4">{$settings.synth_options.decay}s</small></label
 		>
 		<input
 			type="range"
@@ -66,13 +70,13 @@
 			min="0"
 			max={maxTime}
 			step="0.1"
-			bind:value={$synth_options.decay}
+			bind:value={$settings.synth_options.decay}
 		/>
 	</div>
 
 	<div class="flex flex-col gap-2">
 		<label for="sustain" class="capitalize font-semibold text-xl"
-			>Sustain <small class="px-4">{$synth_options.sustain * 100}%</small></label
+			>Sustain <small class="px-4">{$settings.synth_options.sustain * 100}%</small></label
 		>
 		<input
 			type="range"
@@ -81,7 +85,7 @@
 			min="0"
 			max="1"
 			step="0.1"
-			bind:value={$synth_options.sustain}
+			bind:value={$settings.synth_options.sustain}
 		/>
 	</div>
 </div>

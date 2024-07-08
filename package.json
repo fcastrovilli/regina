@@ -38,6 +38,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@tonaljs/note": "^4.10.3",
 		"@tonaljs/scale": "^4.12.6",
 		"tone": "^14.9.17"
 	}

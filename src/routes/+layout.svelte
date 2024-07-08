@@ -4,10 +4,12 @@
 	import { app_started } from '$lib/store';
 	import { initializeStores, Drawer } from '@skeletonlabs/skeleton';
 	import Settings from '$lib/settings.svelte';
+	import LocalStorage from '$lib/localStorage.svelte';
 
 	initializeStores();
 </script>
 
+<LocalStorage />
 {#if $app_started}
 	<Drawer>
 		<Settings />

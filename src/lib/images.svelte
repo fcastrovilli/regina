@@ -1,15 +1,16 @@
 <script lang="ts">
 	import * as Tone from 'tone';
 	const poly = new Tone.PolySynth().toDestination();
-	import { synth_options, scale } from './store';
+	import { settings } from './store';
 	import Scale from '@tonaljs/scale';
+	import Note from '@tonaljs/note';
 
-	$: selected_scale = Scale.get($scale);
+	$: selected_scale = Scale.get($settings.scale);
 
 	$: {
 		poly.set({
 			envelope: {
-				...$synth_options
+				...$settings.synth_options
 			},
 			volume: -10
 		});
@@ -132,9 +133,9 @@
 					on:contextmenu|preventDefault={() => {
 						return false;
 					}}
-					on:pointerdown={() => attack(selected_scale.notes[0])}
-					on:pointerup={() => release(selected_scale.notes[0])}
-					on:pointerleave={() => release(selected_scale.notes[0])}
+					on:pointerdown={() => attack(Note.transpose(selected_scale.notes[0], '8P'))}
+					on:pointerup={() => release(Note.transpose(selected_scale.notes[0], '8P'))}
+					on:pointerleave={() => release(Note.transpose(selected_scale.notes[0], '8P'))}
 					class="h-auto max-w-full"
 					src="./img/08_E.png"
 					alt="Sezione 8"
